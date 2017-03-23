@@ -1,0 +1,4 @@
+#Tue Mar 14 16:32:23 EDT 2017
+base.0=/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4
+renamed.0=classes.dex
+file.0=/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex
