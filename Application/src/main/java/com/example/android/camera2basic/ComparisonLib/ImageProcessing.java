@@ -125,22 +125,25 @@ public abstract class ImageProcessing {
         return hsl;
     }
 
-    public static int[] decodeImagetoLuminosity(Image image) {
-        if (image == null) throw new NullPointerException();
+/*    public static int[] decodeImagetoLuminosity(Image image) {
 
-        ByteBuffer buffer = image.getPlanes()[0].getBuffer();
+        if (image == null) throw new NullPointerException();
+        Image localImage = image;
+
+        ByteBuffer buffer = localImage.getPlanes()[0].getBuffer();
+
         byte[] bytes = new byte[buffer.capacity()];
         buffer.get(bytes);
         Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
 
-        int[] imgColor = new int[image.getWidth() * image.getHeight()];
-        int[] grayscalePixel = new int[image.getWidth() * image.getHeight()];
+        int[] imgColor = new int[localImage.getWidth() * localImage.getHeight()];
+        int[] grayscalePixel = new int[localImage.getWidth() * localImage.getHeight()];
         int width = bitmapImage.getWidth();
         int height = bitmapImage.getHeight();
         Log.d(TAG,"bitmapImage.getWidth: " + width);
         Log.d(TAG,"bitmapImage.getHeight: " + height);
-        int widthCI = image.getWidth();
-        int heightCI = image.getHeight();
+        int widthCI = localImage.getWidth();
+        int heightCI = localImage.getHeight();
         Log.d(TAG,"currentImage.getWidth: " + widthCI);
         Log.d(TAG,"currentImage.getHeight: " + heightCI);
         bitmapImage.getPixels(imgColor,0,heightCI,0,0,heightCI,widthCI);
@@ -154,7 +157,34 @@ public abstract class ImageProcessing {
             pBlue = Color.blue(imgColor[i]);
             grayscalePixel[i] = (int) Math.round((0.21 * pRed) + (0.71 * pGreen) + (0.07 * pBlue));
         }
+        //localImage.close();
+        buffer=null;
+        return grayscalePixel;
+    }*/
 
+    public static int[] decodeImagetoLuminosity(Bitmap image) {
+
+        if (image == null) throw new NullPointerException();
+
+        int[] imgColor = new int[image.getWidth() * image.getHeight()];
+        int[] grayscalePixel = new int[image.getWidth() * image.getHeight()];
+        int width = image.getWidth();
+        int height = image.getHeight();
+        Log.d(TAG,"bitmapImage.getWidth: " + width);
+        Log.d(TAG,"bitmapImage.getHeight: " + height);
+        image.getPixels(imgColor,0,width,0,0,width,height);
+
+        for (int i = 0; i < imgColor.length; i++) {
+            int pRed;
+            int pGreen;
+            int pBlue;
+            pRed = Color.red(imgColor[i]);
+            pGreen = Color.green(imgColor[i]);
+            pBlue = Color.blue(imgColor[i]);
+            grayscalePixel[i] = (int) Math.round((0.21 * pRed) + (0.71 * pGreen) + (0.07 * pBlue));
+        }
+        //localImage.close();
+        //buffer=null;
         return grayscalePixel;
     }
 
@@ -239,6 +269,9 @@ public abstract class ImageProcessing {
      *             if RGB integer array is NULL.
      */
     public static Bitmap lumaToGreyscale(int[] lum, int width, int height) {
+
+        Log.d(TAG, "lumaToGreyscale");
+
         if (lum == null) throw new NullPointerException();
 
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
@@ -248,6 +281,7 @@ public abstract class ImageProcessing {
                 bitmap.setPixel(x, y, Color.argb(1, luma, luma, luma));
             }
         }
+        Log.d(TAG, "lumaToGreyscale: finish");
         return bitmap;
     }
 

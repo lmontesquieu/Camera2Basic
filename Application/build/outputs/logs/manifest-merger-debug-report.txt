@@ -1,77 +1,77 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:18:1-40:12
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:18:1-40:12
 	package
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:19:5-47
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:19:5-47
 	xmlns:android
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:18:11-69
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:18:11-69
 uses-permission#android.permission.CAMERA
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:21:5-65
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:21:5-65
 	android:name
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:21:22-62
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:21:22-62
 uses-feature#android.hardware.camera
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:23:5-60
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:23:5-60
 	android:name
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:23:19-57
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:23:19-57
 uses-feature#android.hardware.camera.autofocus
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:24:5-70
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:24:5-70
 	android:name
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:24:19-67
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:24:19-67
 application
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:26:5-38:19
-MERGED from [com.android.support:support-v13:25.0.1] /home/pepe/.android/build-cache/29a8ee404007128f65595bc888e5061eb6d36cc0/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:cardview-v7:25.0.1] /home/pepe/.android/build-cache/aa1839190845216ff758ac1e016fa5c1bc8a30ac/output/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:25.0.1] /home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:25.0.1] /home/pepe/.android/build-cache/014ae2a89d093729a411c87feff0c1b284c0d6d6/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.0.1] /home/pepe/.android/build-cache/68eea51440d85c0bf46685704000f4538ab0df96/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.0.1] /home/pepe/.android/build-cache/facadba91c32adfa597e4422e8aa99adc1ad546b/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.0.1] /home/pepe/.android/build-cache/e88e8e9d3853482593d13a4e3d8988bad1dda192/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.0.1] /home/pepe/.android/build-cache/20463cbbb537b9d907843533e1c2eca838f20c7f/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.0.1] /home/pepe/.android/build-cache/840e105f8ef66c1525b08c41d12eebd295692275/output/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:25.0.1] /home/pepe/.android/build-cache/07892dcf5bc0ce89c55fd0fdff2d0c006d5103a8/output/AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:support-compat:25.0.1] /home/pepe/.android/build-cache/b564b07bb19461d6ebdaf7baaafb2245c1fdf656/output/AndroidManifest.xml:25:5-20
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:26:5-38:19
+MERGED from [com.android.support:support-v13:25.0.1] /Users/Pepe/.android/build-cache/a2beb832cfdf4125a660e4eaeadd973154e1ac02/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:cardview-v7:25.0.1] /Users/Pepe/.android/build-cache/3622ab88731ac0cc5c7b55ce7ff59fef2a6fa823/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:25.0.1] /Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:25.0.1] /Users/Pepe/.android/build-cache/22612b9d598063bd999fed0018abeaa6da416f5b/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.0.1] /Users/Pepe/.android/build-cache/d9b151ecb64fa908e2b29bcd477e02d672074511/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.0.1] /Users/Pepe/.android/build-cache/df9a1d2ff09fced8252326e9447e70242a37240b/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.0.1] /Users/Pepe/.android/build-cache/7ac0fad9891ea9245b6ffa2e3f55f1b10c70dc23/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.0.1] /Users/Pepe/.android/build-cache/e114cd6e947c5075dada46cf137166b6395b9e35/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.0.1] /Users/Pepe/.android/build-cache/bb17e814054b99a37d2331e9b9e2f8bf45a068c6/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.0.1] /Users/Pepe/.android/build-cache/77f227e72239a8c181881d21e61f72b35cf376cc/output/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:25.0.1] /Users/Pepe/.android/build-cache/9a1fd66c4d75d1f10d347dd357a8396f46c35367/output/AndroidManifest.xml:25:5-20
 	android:label
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:27:9-41
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:27:9-41
 	android:allowBackup
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:26:18-44
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:26:18-44
 	android:icon
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:28:9-45
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:28:9-45
 	android:theme
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:29:9-45
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:29:9-45
 activity#com.example.android.camera2basic.CameraActivity
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:31:9-37:20
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:31:9-37:20
 	android:label
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:32:19-51
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:32:19-51
 	android:name
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:31:19-49
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:31:19-49
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:33:13-36:29
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:33:13-36:29
 action#android.intent.action.MAIN
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:34:17-69
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:34:17-69
 	android:name
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:34:25-66
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:34:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:35:17-77
+ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:35:17-77
 	android:name
-		ADDED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml:35:27-74
+		ADDED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml:35:27-74
 uses-sdk
-INJECTED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:support-v13:25.0.1] /home/pepe/.android/build-cache/29a8ee404007128f65595bc888e5061eb6d36cc0/output/AndroidManifest.xml:21:5-23:55
-MERGED from [com.android.support:cardview-v7:25.0.1] /home/pepe/.android/build-cache/aa1839190845216ff758ac1e016fa5c1bc8a30ac/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:25.0.1] /home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:25.0.1] /home/pepe/.android/build-cache/014ae2a89d093729a411c87feff0c1b284c0d6d6/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.0.1] /home/pepe/.android/build-cache/68eea51440d85c0bf46685704000f4538ab0df96/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.0.1] /home/pepe/.android/build-cache/facadba91c32adfa597e4422e8aa99adc1ad546b/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.0.1] /home/pepe/.android/build-cache/e88e8e9d3853482593d13a4e3d8988bad1dda192/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.0.1] /home/pepe/.android/build-cache/20463cbbb537b9d907843533e1c2eca838f20c7f/output/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:animated-vector-drawable:25.0.1] /home/pepe/.android/build-cache/840e105f8ef66c1525b08c41d12eebd295692275/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.0.1] /home/pepe/.android/build-cache/07892dcf5bc0ce89c55fd0fdff2d0c006d5103a8/output/AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:support-compat:25.0.1] /home/pepe/.android/build-cache/b564b07bb19461d6ebdaf7baaafb2245c1fdf656/output/AndroidManifest.xml:21:5-23:58
+INJECTED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:support-v13:25.0.1] /Users/Pepe/.android/build-cache/a2beb832cfdf4125a660e4eaeadd973154e1ac02/output/AndroidManifest.xml:21:5-23:55
+MERGED from [com.android.support:cardview-v7:25.0.1] /Users/Pepe/.android/build-cache/3622ab88731ac0cc5c7b55ce7ff59fef2a6fa823/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:25.0.1] /Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.0.1] /Users/Pepe/.android/build-cache/22612b9d598063bd999fed0018abeaa6da416f5b/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.0.1] /Users/Pepe/.android/build-cache/d9b151ecb64fa908e2b29bcd477e02d672074511/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.0.1] /Users/Pepe/.android/build-cache/df9a1d2ff09fced8252326e9447e70242a37240b/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.0.1] /Users/Pepe/.android/build-cache/7ac0fad9891ea9245b6ffa2e3f55f1b10c70dc23/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.0.1] /Users/Pepe/.android/build-cache/e114cd6e947c5075dada46cf137166b6395b9e35/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.0.1] /Users/Pepe/.android/build-cache/bb17e814054b99a37d2331e9b9e2f8bf45a068c6/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.0.1] /Users/Pepe/.android/build-cache/77f227e72239a8c181881d21e61f72b35cf376cc/output/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:25.0.1] /Users/Pepe/.android/build-cache/9a1fd66c4d75d1f10d347dd357a8396f46c35367/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v13:25.0.1] /home/pepe/.android/build-cache/29a8ee404007128f65595bc888e5061eb6d36cc0/output/AndroidManifest.xml:23:9-52
+		ADDED from [com.android.support:support-v13:25.0.1] /Users/Pepe/.android/build-cache/a2beb832cfdf4125a660e4eaeadd973154e1ac02/output/AndroidManifest.xml:23:9-52
 	android:targetSdkVersion
-		INJECTED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml
-		INJECTED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml
-		INJECTED from /home/pepe/AndroidStudioProjects/Camera2Basic/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Pepe/AndroidStudioProjects/MovementDetector/Application/src/main/AndroidManifest.xml

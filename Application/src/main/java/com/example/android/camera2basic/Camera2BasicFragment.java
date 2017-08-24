@@ -248,6 +248,7 @@ public class Camera2BasicFragment extends Fragment
      * This is the output file for our picture.
      */
     private File mFile;
+    private File mFile2;
 
     private byte[] getBytesFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -269,9 +270,15 @@ public class Camera2BasicFragment extends Fragment
             int[] grayscaleImg;
 
             currentImage = reader.acquireNextImage();
-            Log.d(TAG,"Image Format: " + String.valueOf(currentImage.getFormat()));
+            //Log.d(TAG,"Image Format: " + String.valueOf(currentImage.getFormat()));
 
-            grayscaleImg = ImageProcessing.decodeImagetoLuminosity(currentImage);
+            ByteBuffer buffer = currentImage.getPlanes()[0].getBuffer();
+
+            byte[] bytes = new byte[buffer.capacity()];
+            buffer.get(bytes);
+            Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
+
+            grayscaleImg = ImageProcessing.decodeImagetoLuminosity(bitmapImage.copy(Bitmap.Config.RGB_565,true));
             grayscaleBitmap = ImageProcessing.lumaToGreyscale(grayscaleImg,currentImage.getWidth(),currentImage.getHeight());
 
             //if (img != null && detector.detect(img, width, height)) {
@@ -279,9 +286,21 @@ public class Camera2BasicFragment extends Fragment
                 String fileName = "pic_" + formattedDate + ".jpg";
                 Log.d(TAG, "Filename: " + fileName);
                 mFile = new File(getActivity().getExternalFilesDir(null), fileName);
+                //mBackgroundHandler.post(new BitmapSaver(grayscaleBitmap,mFile));
                 //mProcessedFile = new File(getActivity().getExternalFilesDir(null), "p_" + fileName);
                 //mBackgroundHandler.post(new ImageSaver(currentImage, mFile));
-                currentImage.close();
+                //currentImage.close();
+
+                mBackgroundHandler.post(new ImageSaver(currentImage, mFile));
+            try {
+                //currentImage.close();
+                //grayscaleBitmap.recycle();
+                //grayscaleImg = null;
+            } catch (Exception e) {
+                Log.d(TAG, "Exception while closing image");
+                e.printStackTrace();
+            }
+            Log.d(TAG, "Image closed");
                 //Bitmap bitmap = null;
                 //bitmap = ImageProcessing.lumaToGreyscale(img, width, height);
                 //mBackgroundHandler.post(new ImageSaver(currentImage, mFile));
@@ -883,7 +902,7 @@ public class Camera2BasicFragment extends Fragment
                                                @NonNull TotalCaptureResult result) {
                     //showToast("Saved: " + mFile);
                     //Log.d(TAG, mFile.toString());
-                    showToast("Saved");
+                    showToast("Capture initiated");
                     unlockFocus();
                 }
             };
@@ -934,8 +953,8 @@ public class Camera2BasicFragment extends Fragment
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.picture: {
-                //takePicture();
-                automaticClick();
+                takePicture();
+                //automaticClick();
                 break;
             }
             case R.id.info: {
@@ -959,7 +978,7 @@ public class Camera2BasicFragment extends Fragment
                 takePicture();
                 Log.d(TAG,"Taking Picture");
             }
-        },0,15000); //update every n/1000 seconds
+        },0,180000); //update every n/1000 seconds
     }
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
@@ -984,12 +1003,14 @@ public class Camera2BasicFragment extends Fragment
         private final File mFile;
 
         public ImageSaver(Image image, File file) {
+            Log.d(TAG,"ImageSaver constructor");
             mImage = image;
             mFile = file;
         }
 
         @Override
         public void run() {
+            Log.d(TAG,"ImageSaver start");
             ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.remaining()];
             buffer.get(bytes);
@@ -1009,8 +1030,8 @@ public class Camera2BasicFragment extends Fragment
                     }
                 }
             }
+            Log.d(TAG,"Image saved");
         }
-
     }
 
     private static class BitmapSaver implements Runnable {
@@ -1025,28 +1046,34 @@ public class Camera2BasicFragment extends Fragment
         private final File mFile;
 
         public BitmapSaver(Bitmap bitmap, File file) {
+            Log.d(TAG,"BitmapSaver constructor");
             mBitmap = bitmap;
             mFile = file;
         }
 
         @Override
         public void run() {
+            Log.d(TAG,"Starting SAVE bitmap");
             FileOutputStream out = null;
             try {
                 out = new FileOutputStream(mFile);
                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
+                Log.d(TAG,"Finished compress bitmap");
                 // PNG is a lossless format, the compression factor (100) is ignored
             } catch (Exception e) {
+                Log.d(TAG,"Exception at save");
                 e.printStackTrace();
             } finally {
                 try {
                     if (out != null) {
+                        Log.d(TAG,"Closing saved image");
                         out.close();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+            Log.d(TAG,"Bitmap saved");
         }
     }
 

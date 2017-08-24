@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "/Users/Pepe/AndroidStudioProjects/MovementDetector/Application/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/res/drawable-v21/abc_btn_colored_material.xml"
+        "merged": "/Users/Pepe/AndroidStudioProjects/MovementDetector/Application/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
-        "source": "/home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/res/drawable-v21/notification_action_background.xml"
+        "merged": "/Users/Pepe/AndroidStudioProjects/MovementDetector/Application/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
-        "source": "/home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/res/drawable-v21/abc_edit_text_material.xml"
+        "merged": "/Users/Pepe/AndroidStudioProjects/MovementDetector/Application/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/res/drawable-v21/notification_action_background.xml"
     }
 ]

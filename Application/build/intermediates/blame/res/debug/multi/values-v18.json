@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
+        "outputFile": "/Users/Pepe/AndroidStudioProjects/MovementDetector/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 99
                 },
                 "from": {
-                    "file": "/home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/res/values-v18/values-v18.xml",
+                    "file": "/Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/res/values-v18/values-v18.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

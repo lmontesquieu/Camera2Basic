@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "/Users/Pepe/AndroidStudioProjects/MovementDetector/Application/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "/home/pepe/AndroidStudioProjects/Camera2Basic/Application/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/home/pepe/.android/build-cache/4f3e70e010ac4afac36c85be2c40e49e88334488/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "/Users/Pepe/AndroidStudioProjects/MovementDetector/Application/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/Pepe/.android/build-cache/407660ca897cc5ba4c69137cc1933fe8bf8950a6/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     }
 ]
