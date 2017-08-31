@@ -1,6 +1,7 @@
 package com.example.android.camera2basic.ComparisonLib;
 
 import android.graphics.Color;
+import android.util.Log;
 
 /**
  * This class is used to process integer arrays containing Luma data and detects
@@ -16,6 +17,7 @@ public class LumaMotionDetection implements IMotionDetection {
     // Specific settings
     private static final int mPixelThreshold = 50; // Difference in luma value
     private static final int mThreshold = 10000; // Number of different pixels
+    private static final String TAG = "LumaMotionDetection";
 
     private static int[] mPrevious = null;
     private static int mPreviousWidth = 0;
@@ -64,6 +66,7 @@ public class LumaMotionDetection implements IMotionDetection {
          * + "%"; if (different) { Log.e(TAG, output); } else { Log.d(TAG,
          * output); }
          */
+        Log.d(TAG,"Threshold: " + mThreshold + " Total different pixels: " + totDifferentPixels);
         return different;
     }
 

@@ -78,6 +78,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -248,13 +249,12 @@ public class Camera2BasicFragment extends Fragment
      * This is the output file for our picture.
      */
     private File mFile;
-    private File mFile2;
 
-    private byte[] getBytesFromBitmap(Bitmap bitmap) {
+    /*private byte[] getBytesFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
         return stream.toByteArray();
-    }
+    }*/
     /**
      * This a callback object for the {@link ImageReader}. "onImageAvailable" will be called when a
      * still image is ready to be saved.
@@ -270,43 +270,45 @@ public class Camera2BasicFragment extends Fragment
             int[] grayscaleImg;
 
             currentImage = reader.acquireNextImage();
-            //Log.d(TAG,"Image Format: " + String.valueOf(currentImage.getFormat()));
 
             ByteBuffer buffer = currentImage.getPlanes()[0].getBuffer();
 
             byte[] bytes = new byte[buffer.capacity()];
             buffer.get(bytes);
+
             Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
-
+            //Log.d(TAG,"bytes length: " + bytes.length);
             grayscaleImg = ImageProcessing.decodeImagetoLuminosity(bitmapImage.copy(Bitmap.Config.RGB_565,true));
-            grayscaleBitmap = ImageProcessing.lumaToGreyscale(grayscaleImg,currentImage.getWidth(),currentImage.getHeight());
+            //Log.d(TAG,"grayscaleImg length : " + grayscaleImg.length);
+            //OnePlus3:
+            //grayscaleBitmap = ImageProcessing.lumaToGreyscale(grayscaleImg,currentImage.getWidth(),currentImage.getHeight());
+            //Samsung Galaxy:
+            grayscaleBitmap = ImageProcessing.lumaToGreyscale(grayscaleImg,currentImage.getHeight(),currentImage.getWidth());
+            buffer.clear();
 
-            //if (img != null && detector.detect(img, width, height)) {
-                String formattedDate = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(Calendar.getInstance().getTime());
-                String fileName = "pic_" + formattedDate + ".jpg";
-                Log.d(TAG, "Filename: " + fileName);
-                mFile = new File(getActivity().getExternalFilesDir(null), fileName);
-                //mBackgroundHandler.post(new BitmapSaver(grayscaleBitmap,mFile));
-                //mProcessedFile = new File(getActivity().getExternalFilesDir(null), "p_" + fileName);
-                //mBackgroundHandler.post(new ImageSaver(currentImage, mFile));
-                //currentImage.close();
+            String formattedDate = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(Calendar.getInstance().getTime());
+            String fileName = "pic_" + formattedDate + ".jpg";
+            Log.d(TAG, "Filename: " + fileName);
+            mFile = new File(getActivity().getExternalFilesDir(null), fileName);
 
-                mBackgroundHandler.post(new ImageSaver(currentImage, mFile));
-            try {
-                //currentImage.close();
-                //grayscaleBitmap.recycle();
-                //grayscaleImg = null;
-            } catch (Exception e) {
-                Log.d(TAG, "Exception while closing image");
-                e.printStackTrace();
+            if (grayscaleImg != null && detector.detect(grayscaleImg,currentImage.getWidth(),currentImage.getHeight())) {
+                buffer.clear();
+                mBackgroundHandler.post(new ImageSaver(currentImage,mFile));
+                Log.d(TAG,"MOTION");
+
+            } else {
+                //Log.d(TAG,"grayscaleBitmap width: " + grayscaleBitmap.getWidth() + " height: " + grayscaleBitmap.getHeight());
+                mBackgroundHandler.post(new BitmapSaver(grayscaleBitmap,mFile));
+                try {
+                    currentImage.close();
+                    //grayscaleBitmap.recycle();
+                    //grayscaleImg = null;
+                } catch (Exception e) {
+                    Log.d(TAG, "Exception while closing image");
+                    e.printStackTrace();
+                }
+                //mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
             }
-            Log.d(TAG, "Image closed");
-                //Bitmap bitmap = null;
-                //bitmap = ImageProcessing.lumaToGreyscale(img, width, height);
-                //mBackgroundHandler.post(new ImageSaver(currentImage, mFile));
-                //mBackgroundHandler.post(new BitmapSaver(bitmap,mProcessedFile));
-            //}
-            //mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
         }
     };
 
@@ -357,7 +359,8 @@ public class Camera2BasicFragment extends Fragment
                 case STATE_WAITING_LOCK: {
                     Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
                     if (afState == null) {
-                        captureStillPicture();
+                        Log.d(TAG,"STATE WAITING LOCK. af = NULL");
+                        //captureStillPicture();
                     } else if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                             CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) {
                         // CONTROL_AE_STATE can be null on some devices
@@ -574,9 +577,24 @@ public class Camera2BasicFragment extends Fragment
                 }
 
                 // For still image captures, we use the largest available size.
-                Size largest = Collections.max(
+                /*Size largest = Collections.max(
                         Arrays.asList(map.getOutputSizes(ImageFormat.JPEG)),
                         new CompareSizesByArea());
+                        */
+                // Finding now smallest, to increase processing speed.
+                //Collections sizesCollection;
+                //int sizesList = 1;
+                //sizesCollection = Arrays.asList(map.getOutputSizes(ImageFormat.JPEG), new CompareSizesByArea());
+                /*Size largest = Collections.max(
+                        Arrays.asList(map.getOutputSizes(ImageFormat.JPEG)),
+                        new CompareSizesByArea());*/
+
+                Size largest = Collections.min(
+                            Arrays.asList(map.getOutputSizes(ImageFormat.JPEG)),
+                            new CompareSizesByArea());
+
+                //Size thirdOfLargest = new Size((int) Math.floor(largest.getWidth()/3),(int) Math.floor(largest.getHeight()/3));
+
                 mImageReader = ImageReader.newInstance(largest.getWidth(), largest.getHeight(),
                         ImageFormat.JPEG, /*maxImages*/2);
                 mImageReader.setOnImageAvailableListener(
@@ -646,7 +664,9 @@ public class Camera2BasicFragment extends Fragment
 
                 // Check if the flash is supported.
                 Boolean available = characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
-                mFlashSupported = available == null ? false : available;
+                //mFlashSupported = available == null ? false : available;
+                //Turning off flash as this is a monitoring camera
+                mFlashSupported = false;
 
                 mCameraId = cameraId;
                 return;
@@ -1003,14 +1023,12 @@ public class Camera2BasicFragment extends Fragment
         private final File mFile;
 
         public ImageSaver(Image image, File file) {
-            Log.d(TAG,"ImageSaver constructor");
             mImage = image;
             mFile = file;
         }
 
         @Override
         public void run() {
-            Log.d(TAG,"ImageSaver start");
             ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.remaining()];
             buffer.get(bytes);
@@ -1046,27 +1064,24 @@ public class Camera2BasicFragment extends Fragment
         private final File mFile;
 
         public BitmapSaver(Bitmap bitmap, File file) {
-            Log.d(TAG,"BitmapSaver constructor");
             mBitmap = bitmap;
             mFile = file;
         }
 
         @Override
         public void run() {
-            Log.d(TAG,"Starting SAVE bitmap");
             FileOutputStream out = null;
             try {
                 out = new FileOutputStream(mFile);
                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
-                Log.d(TAG,"Finished compress bitmap");
                 // PNG is a lossless format, the compression factor (100) is ignored
             } catch (Exception e) {
                 Log.d(TAG,"Exception at save");
                 e.printStackTrace();
             } finally {
+                mBitmap.recycle();
                 try {
                     if (out != null) {
-                        Log.d(TAG,"Closing saved image");
                         out.close();
                     }
                 } catch (IOException e) {
